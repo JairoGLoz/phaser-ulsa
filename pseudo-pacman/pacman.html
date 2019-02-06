@@ -3,7 +3,8 @@
 <head> 
     <meta charset="UTF-8" />
     <title>Making your first Phaser 3 Game - Part 10</title>
-    <script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
+    <!--<script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>-->
+    <script src="../lib/phaser-facebook-instant-games.js"></script>
     <style type="text/css">
         body {
             margin: 0;
@@ -51,7 +52,7 @@ function preload ()
     this.load.image('point', '../assets/point.png');
     this.load.image('star', '../assets/star.png');
     this.load.image('bomb', '../assets/bomb.png');
-    this.load.spritesheet('dude', '../assets/dude.png', { frameWidth: 21.33, frameHeight: 32 });
+    this.load.spritesheet('dude', '../assets/pacman-spritesheet.png', { frameWidth: 35, frameHeight: 32 });
 }
 
 function create ()
@@ -207,20 +208,20 @@ function create ()
     //  Our player animations, turning, walking left and walking right.
     this.anims.create({
         key: 'left',
-        frames: this.anims.generateFrameNumbers('dude', { start: 0, end: 3 }),
+        frames: this.anims.generateFrameNumbers('dude', { start: 1, end: 4 }),
         frameRate: 10,
         repeat: -1
     });
 
     this.anims.create({
         key: 'turn',
-        frames: [ { key: 'dude', frame: 4 } ],
+        frames: [ { key: 'dude', frame: 4 }],
         frameRate: 20
     });
 
     this.anims.create({
         key: 'right',
-        frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
+        frames: this.anims.generateFrameNumbers('dude', { start: 1, end: 4 }),
         frameRate: 10,
         repeat: -1
     });
